@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+
+<ul class="topnav">
+  <li><a routerLink="/" class="active">Home</a></li>
+  <li><a >News</a></li>
+  <li><a >Contact</a></li>
+  <li class="right"><a href="/resetpassword">forgotten password</a></li>
+  <li class="right"><a routerLink="/login">SignIn</a></li>
+  <li class="right"><a routerLink="/regis">SignUp</a></li>
+  <li (click)="onLogout()" class="right"><a  routerLink="/login">Sign Out</a></li>
+</ul>
+
+<div style="padding:0 16px;">
+    <router-outlet></router-outlet>
+</div>
+</body>
+</html>

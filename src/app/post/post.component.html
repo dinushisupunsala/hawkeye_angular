@@ -1,0 +1,131 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div style="font-size: 15px" class="row">
+
+      <!-- Post Content Column -->
+      <div class="col-lg-10">
+
+        <!-- Title -->
+        <h1 class="mt-4">{{post.title}}</h1>
+
+        <!-- Author -->
+        <p class="lead" style=" font-size: 15px">
+          by
+          <a>{{post.createdBy}}</a>
+        </p>
+        <p>Rate : {{ post.rate | number : '1.2-2' }}</p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p style="font-size: 12px">Posted on {{post.createdAt | date:'EEEE, MMMM d, y h:mma'}}</p>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="../../assets/images/food new.jpeg" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+
+        <p>{{post.body}}</p>
+
+        <hr>
+        <div>
+
+
+          <!-- alert message -->
+          <div *ngIf="message" class="alert alert-warning" role="alert">
+            {{message}}
+          </div>
+
+
+
+
+          <!-- like button -->
+          <div class="dropdown" >
+            <button type="button" name="button" class="btn btn-lg btn-success" (click)="likepost(post._id)">
+              <span class="glyphicon glyphicon-thumbs-up" style=" font-size: 12px">&nbsp;</span>Likes: {{ post.likes }}</button>
+            <div class="dropdown-content">
+              <a [routerLink]="['/user/', liker]" *ngFor="let liker of post.likedBy">{{ liker }}</a>
+            </div>
+          </div>
+          <!-- end like button -->
+
+
+
+<!-- dislike button -->
+          <div class="dropdown">
+          <button type="button" name="button" class="btn btn-lg btn-warning" (click)="dislikepost(post._id)">
+              <span class="glyphicon glyphicon-thumbs-down">&nbsp;</span>Dislikes: {{ post.dislikes }}</button>
+            <div class="dropdown-content">
+              <a [routerLink]="['/user/', disliker]" *ngFor="let disliker of post.dislikedBy">{{ disliker }}</a>
+            </div>
+          </div>
+<!-- end dislike button -->
+
+
+<!-- delete post -->
+          <button (click)="delete(post._id)" style="font-size: 12px;align-self: right;" type="button" class="btn btn-outline-danger btn-lg">
+            <i style="color: red" class="fa fa-trash"></i>&nbsp;&nbsp;Delete </button>
+<!-- delete post end         -->
+        
+          </div>
+ 
+          <div class="form-group">
+give rate :<select (change)="ratepost(post._id)" [(ngModel)]="rateobj.rate" style="width: 50px" class="form-control" id="sel1">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+
+</select></div>
+
+
+        <!-- Comments Form -->
+        <div class="card my-4">
+          <h5 class="card-header" style=" font-size: 15px">Leave a Comment:</h5>
+          <div class="card-body">
+            <!-- <form #signInForm="ngForm"> -->
+            <div class="form-group">
+              <textarea [(ngModel)]="com.comment" class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" (click)=" comment(post._id)" class="btn btn-primary">Submit</button>
+            <!-- </form> -->
+          </div>
+        </div>
+        
+        
+        <!-- Single Comment -->
+        <div class="media mb-4" *ngFor="let comment of post.comments">
+          <img class="d-flex mr-3 rounded-circle" style="height: 50px;width: 50px" src="../../assets/images/images.png" alt="">
+          <div style="font-size: 13px" class="media-body">
+            <h5 class="mt-0"><b>{{comment.commentator }}</b></h5>
+          {{comment.comment}}
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+</body>
