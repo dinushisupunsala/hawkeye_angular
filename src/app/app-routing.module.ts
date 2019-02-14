@@ -33,7 +33,7 @@ export const appRoutes: Routes = [
   { path: '',   redirectTo: 'personal', pathMatch: 'full' },
   //{ path: '**', redirectTo: 'personal', pathMatch: 'full' }
 ]},
-    // 6th Route
+    // 6th Route 
  // { path: 'reg',  component: RegistraionComponent },
   {path: 'login', component: SignInComponent,},
   {path: 'userprofile', component: UserProfileComponent,canActivate:[AuthGuard]},

@@ -41,6 +41,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import { RatingComponent } from './post/rating/rating.component';
 @NgModule({
     imports:      [ BrowserModule, 
                     FormsModule,
@@ -63,7 +64,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
         multi: true
       },AuthGuard ,FlashMessagesService,{ provide: FormDataService, useClass: FormDataService},
                    { provide: WorkflowService, useClass: WorkflowService },RegserviceService],
-    declarations: [ AppComponent, NavbarComponent, PersonalComponent, WorkComponent, AddressComponent, ResultComponent, RegistraionComponent, SignInComponent, UserProfileComponent, ResetpwComponent, NewpwComponent, RegisComponent, AddpostComponent, PostComponent, SearchBarComponent],
+    declarations: [ AppComponent, NavbarComponent, PersonalComponent, WorkComponent, AddressComponent, ResultComponent, RegistraionComponent, SignInComponent, UserProfileComponent, ResetpwComponent, NewpwComponent, RegisComponent, AddpostComponent, PostComponent, SearchBarComponent, RatingComponent],
     bootstrap:    [ AppComponent ]
 })
  

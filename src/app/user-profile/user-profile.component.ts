@@ -130,6 +130,9 @@ return true
  changtitle(title){
    
   //  if(title==1)
+  if(title=="all")
+  this.title=null
+  else
    this.title=title;
    console.log(this.title)
    this.ngOnInit()

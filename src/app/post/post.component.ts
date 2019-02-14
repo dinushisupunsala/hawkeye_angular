@@ -14,7 +14,7 @@ export class PostComponent implements OnInit {
   public id;
   post;
   message;
-
+rate=3;
   userDetails;
   public user = { 
     userId: ''

@@ -12,7 +12,9 @@
 
         <!-- newpost -->
         <h1 class="my-4">
-          <small><b> "Lets share ideas"</b> </small>
+          <small>
+            <b> "Lets share ideas"</b>
+          </small>
         </h1>
         <h1> post > {{title}}</h1>
         <div class="card mb-4">
@@ -31,23 +33,23 @@
                   <option>Travel</option>
                   <option>Health</option>
                   <option>Relax</option>
-                  <option>Food</option>
+                  <option>Foods</option>
                   <option>Vehicle</option>
                   <option>Other</option>
 
 
                 </select>
-              </div> 
+              </div>
               <label for="form7" style="font-size: 14px">Content</label>
               <textarea [(ngModel)]="newpost.body" type="text" id="form7" class="md-textarea md-textarea-auto form-control" mdbInputDirective></textarea>
 
-              
+
             </div>
           </div>
           <flash-messages></flash-messages>
           <button (click)="post()" type="button" class="btn btn-primary btn-lg btn-block">Post</button>
           <div class="card-footer text-muted" style="font-size: 15px">
-            
+
           </div>
         </div>
         <!-- end newpost -->
@@ -56,27 +58,33 @@
 
 
         <!-- all post -->"
-        <div class="card mb-4" border-style="inset" *ngFor="let post of Posts" >
-          <div  *ngIf="type(post.title)">
-          <div class="card-body">
-            <h2 class="card-title" > <b>{{post.title}}</b></h2>
-            <h3 class="card-text">{{post.body}}</h3>
-          </div>
-          <img class="card-img-top"  style=" font-size: 12px; height:150px;width:100%;align-self: center" src="../../assets/images/food new.jpeg" alt="Card image cap">
-          <a (click)="read(post._id)" class="btn btn-primary" style=" font-size: 13px"><b>Read More</b>> &rarr;</a>
+        <div class="card mb-4" border-style="inset" *ngFor="let post of Posts">
+          <div *ngIf="type(post.title)">
+            <div class="card-body">
+              <h2 class="card-title">
+                <b>{{post.title}}</b>
+              </h2>
+              <h3 class="card-text">{{post.body}}</h3>
+            </div>
+            <img *ngIf="post.title==foods" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center" src="../../assets/images/food new.jpeg"
+              alt="Card image cap">
+            <a (click)="read(post._id)" class="btn btn-primary" style=" font-size: 13px">
+              <b>Read More</b>> &rarr;</a>
 
-          <div class="card-footer text-muted" style="font-size: 14px">
-            Post on {{post.createdAt | date:'EEEE, MMMM d, y'      }} <br> {{post.createdAt | date:'h:mma'}}  by
-            {{post.createdBy}}
-            <p>Rate :  {{ post.rate | number : '1.2-2' }}</p>
+            <div class="card-footer text-muted" style="font-size: 14px">
+              Post on {{post.createdAt | date:'EEEE, MMMM d, y' }}
+              <br> {{post.createdAt | date:'h:mma'}} by {{post.createdBy}}
+              <p>Rate : {{ post.rate | number : '1.2-2' }}</p>
+            </div>
           </div>
-        </div></div><br>
+        </div>
+        <br>
         <!-- all post -->
 
 
 
         <!-- Pagination -->
-       
+
 
       </div>
       <div class="col-md-4">
@@ -92,29 +100,39 @@
               <div class="col-lg-10 btn-group-vertical">
                 <ul class="list-unstyled mb-3">
                   <li>
+                    <button class="btn btn-lg btn-info" (click)="changtitle('all')"> All </button>
+                  </li>
+                  <br>
+                  <li>
                     <button class="btn btn-lg btn-primary" (click)="changtitle('Foods')"> Foods </button>
-                  </li><br> 
+                  </li>
+                  <br>
                   <li>
                     <button class="btn btn-lg btn-secondary" (click)="changtitle('Relax')">Relax </button>
-                  </li><br> 
+                  </li>
+                  <br>
                   <li>
                     <button class="btn btn-lg btn-success" (click)="changtitle('Health')">Health </button>
-                  </li><br> 
-                
+                  </li>
+                  <br>
+
                   <li>
                     <button class="btn btn-lg btn-warning" (click)="changtitle('Travel')">Travel </button>
-                  </li><br> 
+                  </li>
+                  <br>
                   <li>
                     <button class="btn btn-lg btn-info" (click)="changtitle('Beauty')">Beauty </button>
-                  </li><br> 
+                  </li>
+                  <br>
                   <li>
                     <button class="btn btn-lg btn-dark" (click)="changtitle('Fashion')">Fashion</button>
-                  </li><br> 
+                  </li>
+                  <br>
                   <li>
                     <button class="btn btn-lg btn-link" (click)="changtitle('Other')">Other </button>
                   </li>
                 </ul>
-             </div>
+              </div>
             </div>
           </div>
         </div>

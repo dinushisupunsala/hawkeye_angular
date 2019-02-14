@@ -21,8 +21,8 @@
           by
           <a>{{post.createdBy}}</a>
         </p>
-        <p>Rate : {{ post.rate | number : '1.2-2' }}</p>
-
+        <p> Rate : {{ post.rate }} <app-rating [rating]="post.rate" layout-align="center center" ></app-rating></p>
+        
         <hr>
 
         <!-- Date/Time -->
