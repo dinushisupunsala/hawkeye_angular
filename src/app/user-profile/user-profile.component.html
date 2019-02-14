@@ -66,8 +66,16 @@
               </h2>
               <h3 class="card-text">{{post.body}}</h3>
             </div>
-            <img *ngIf="post.title==foods" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center" src="../../assets/images/food new.jpeg"
-              alt="Card image cap">
+            <img *ngIf="post.title=='Foods'" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center"
+              src="../../assets/images/food new.jpeg" alt="Card image cap">
+            <img *ngIf="post.title=='Travel'" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center"
+              src="../../assets/images/travel.jpg" alt="Card image cap">
+              <img *ngIf="post.title=='Beauty'" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center"
+              src="../../assets/images/fashion.jpg" alt="Card image cap">
+              <img *ngIf="post.title=='Relax'" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center"
+              src="../../assets/images/trave3.jpg" alt="Card image cap">
+              <img *ngIf="post.title=='Vehicle'" class="card-img-top" style=" font-size: 12px; height:150px;width:100%;align-self: center"
+              src="../../assets/images/travel2.jpg" alt="Card image cap">
             <a (click)="read(post._id)" class="btn btn-primary" style=" font-size: 13px">
               <b>Read More</b>> &rarr;</a>
 
